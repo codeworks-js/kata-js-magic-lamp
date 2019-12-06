@@ -1,7 +1,7 @@
 const {fillTheLampToBeTheRichestManInTheWorld} = require('../src/index.js')
 
 function testMaxCapacity(maxCapacity, result) {
-  expect(result.reduce((acc, item) => acc + item.quandtity ? item.quantity : item.count)).toBeLessThanOrEqual(maxCapacity)
+  expect(result.reduce((acc, item) => acc + item.quantity ? item.quantity : item.count * item.weight)).toBeLessThanOrEqual(maxCapacity)
 }
 
 describe('Test 1', () => {
@@ -161,5 +161,38 @@ describe('Test 4', () => {
   })
   test('has correct items and quantities', () => {
     expect(result).toHaveLength(0)
+  })
+})
+
+describe('Luck will not help you, this time...', () => {
+  const result = fillTheLampToBeTheRichestManInTheWorld(4, [
+    {
+      name: 'gem',
+      count: 1,
+      weight: 3,
+      price: 50
+    },
+  ], [
+    {
+      name: 'spice',
+      quantity: 3,
+      ppg: 20
+    }
+  ])
+  test('has max quantity', () => {
+    testMaxCapacity(4, result)
+  })
+  test('has correct items and quantities', () => {
+    expect(result).toContainEqual({
+      name: 'gem',
+      count: 1,
+      weight: 3,
+      price: 50
+    })
+    expect(result).toContainEqual({
+      name: 'spice',
+      quantity: 1,
+      ppg: 20
+    })
   })
 })
