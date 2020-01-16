@@ -1,7 +1,7 @@
 const {fillTheLampToBeTheRichestManInTheWorld} = require('../src/index.js')
 
 function testMaxCapacity(maxCapacity, result) {
-  expect(result.reduce((acc, item) => acc + item.quantity ? item.quantity : item.count * item.weight)).toBeLessThanOrEqual(maxCapacity)
+  expect(result.reduce((acc, item) => acc + item.quantity ? item.quantity : item.count * item.weight, 0)).toBeLessThanOrEqual(maxCapacity)
 }
 
 describe('Test 1', () => {
