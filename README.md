@@ -22,6 +22,8 @@ You can use `npm run test` to test your code. If all tests pass, you won !
 
 But first intall the dependencies with `npm install`. Thanks.
 
+PS : the last test is the hard part. If you don't pass it, you have implemented the method `fillTheLampToAlmostBeTheRichestManInTheWorld()`, but your still rich so you can be satisfied. If your more of an Uncle Scrooge, complete the last test !
+
 ## You're the richest man in the world !
 
 That's it, there's nothing else to say.
